@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PEIRTA</title>
+    <meta name="description" content="Prince Edward Island Retired Teachers' Association" />
+    <!--<link rel="preconnect" href>-->
+    <style>
+        :root {
+            /* === BLUE + WHITE THEME === */
+            --bg: #f7faff;               /* light bluish background */
+            --ink: #0b2242;              /* main text (dark navy) */
+            --ink-soft: #345e9e;         /* softer blue text */
+            --brand: #2b6cb0;            /* primary blue */
+            --brand-ink: #173e72;        /* darker blue for logo text */
+            --card: #ffffff;             /* white cards */
+            --link: #0b6bc9;             /* bright link blue */
+            --focus: #ffbf47;            /* accessibility yellow for focus */
+            --radius: 14px;
+            --space: clamp(12px, 1.8vw, 20px);
+            --max: 960px;
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; }
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Inter, "Noto Sans", sans-serif;
+            line-height: 1.5;
+            color: var(--ink);
+            background: var(--bg);
+        }
+        a {
+            color: var(--link);
+            text-decoration-thickness: 2px;
+        }
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 3px;
+        }
+        header {
+            background: linear-gradient(180deg, #e9f1ff, transparent 60%);
+            padding: calc(var(--space) * 1.2) var(--space);
+            border-bottom: 1px solid #d6e0f5;
+        }
+        .wrap { max-width: var(--max); margin-inline: auto; }
+        nav {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            text-decoration: none;
+            color: var(--brand-ink);
+        }
+        .brand .logo {
+            width: 200px;
+            height: 90px;
+            border-radius: 50px;
+            background: var(--bg);
+            display: grid;
+            place-items: center;
+            color: white;
+            font-weight: 700;
+        }
+        .brand span {
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+        .pill {
+            padding: 8px 12px;
+            background: var(--card);
+            border: 1px solid #ccd8ef;
+            border-radius: 999px;
+            text-decoration: none;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .pill:hover {
+            background: var(--brand);
+            color: white;
+            border-color: var(--brand);
+        }
+        .hero {
+            padding: var(--space);
+            padding-top: 10px;
+        }
+        .hero h1 {
+            margin: 8px 0 6px;
+            font-size: clamp(1.4rem, 2.6vw, 2rem);
+            color: var(--brand-ink);
+        }
+        .hero p {
+            margin: 0;
+            color: var(--ink-soft);
+        }
+        .grid {
+            display: grid;
+            gap: var(--space);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            margin: var(--space) 0;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid #d6e0f5;
+            border-radius: var(--radius);
+            padding: calc(var(--space) * 0.9);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+        }
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            color: var(--brand-ink);
+        }
+        .list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        footer {
+            border-top: 1px solid #d6e0f5;
+            margin-top: 24px;
+            background: #f1f6ff;
+            padding: calc(var(--space) * 1.2) var(--space);
+            color: var(--ink-soft);
+        }
+        footer .wrap {
+            text-align: center;
+        }
+        .sr-only {
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        .skip {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+        }
+        .skip:focus {
+            left: 12px;
+            top: 12px;
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 2px solid var(--focus);
+        }
+    </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+    <div class="wrap">
+        <nav aria-label="Primary">
+            <a class="brand" href="index.html">
+                <img class="logo" src="LOGO/IMG_5570.PNG" alt="logo">
+                <!-- <div class="logo" aria-hidden="true">RT</div> aria-hidden="true" hides decorative text (“RT”) from screen readers.-->
+                <!-- <span>Retired Teachers’ Association</span> -->
+            </a>
+            <div style="display:flex; gap:8px; flex-wrap:wrap">
+                <a class="pill" href="Newsletters">Newsletters</a>
+                <a class="pill" href=Membership%20Form>Membership</a>
+                <a class="pill" href="#benefits">Benefits</a>
+                <a class="pill" href="#contact">Contact</a>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1>About Us</h1>
+            <p>Prince Edward Island Retired Teachers’ Association................. (insert a short 'about us description')</p>
+        </div>
+    </div>
+</header>
+
+<main id="main" class="wrap" role="main">
+    <!-- Featured sections -->
+    <section class="grid" aria-labelledby="featured">
+        <h2 id="featured" class="sr-only">Featured Links</h2>
+
+        <article class="card" id="presidentsAnnualReport">
+            <h3>President's Annual Report</h3>
+            <p>Read the latest or browse the archive.</p>
+            <ul class="list">
+                <li><a href="#">Latest issue (PDF)</a></li>
+                <li><a href="#">Archive</a></li>
+            </ul>
+        </article>
+
+        <article class="card" id="notices">
+            <h3>Notices</h3>
+            <p>(posting notices)</p>
+            <ul class="list">
+                <li><a href="#">Related links</a></li>
+
+            </ul>
+        </article>
+
+        <article class="card" id="groupInsuranceForum">
+            <h3>Group Insurance Forum</h3>
+            <p>Programs and group insurance information.</p>
+            <ul class="list">
+                <li><a href="https://www.peitf.com/">Prince Edward Island Teachers' Federation</a></li>
+                <!--<li><a href="#">Seniors’ Discounts</a></li>-->
+            </ul>
+        </article>
+
+        <article class="card" id="historyOfRTA">
+            <h3>History of RTA</h3>
+            <p>(Info will be provided)</p>
+            <ul class="list">
+                <li><a href="#">Related links</a></li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- Everything else (simple link hub) -->
+    <section class="card">
+        <h2>All Sections</h2>
+        <ul class="list" style="columns: 2; column-gap: 28px; max-width: 100%;">
+            <li><a href="#">Presidents’ Annual Report</a></li>
+            <li><a href="#">Notices</a></li>
+            <li><a href="#">Group Insurance Forum</a></li>
+            <li><a href="#">History of RTA</a></li>
+            <li><a href="#">Newsletters</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Benefits</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </section>
+
+    <!--<section id="contact" class="card">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:info@example.org">info@example.org</a> • Mailing Address • Phone</p>
+    </section>-->
+</main>
+
+<footer>
+    <div class="wrap">
+        <small>&copy; <span id="year"></span> Retired Teachers’ Association. All rights reserved.</small>
+    </div>
+    <!--Simple JavaScript that inserts the current year into the footer (so you don’t have to update it manually).-->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</footer>
+</body>
+</html>
