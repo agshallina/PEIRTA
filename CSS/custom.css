@@ -1,0 +1,196 @@
+:root {
+    /* === BLUE + WHITE THEME === */
+    --bg: #f7faff;               /* light bluish background */
+    --ink: #0b2242;              /* main text (dark navy) */
+    --ink-soft: #345e9e;         /* softer blue text */
+    --brand: #2b6cb0;            /* primary blue */
+    --brand-ink: #173e72;        /* darker blue for logo text */
+    --card: #ffffff;             /* white cards */
+    --link: #0b6bc9;             /* bright link blue */
+    --focus: #ffbf47;            /* accessibility yellow for focus */
+    --radius: 14px;
+    --space: clamp(12px, 1.8vw, 20px);
+    --max: 960px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Inter, "Noto Sans", sans-serif;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--bg);
+}
+a {
+    color: var(--link);
+    text-decoration-thickness: 2px;
+}
+a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+header {
+    position: relative; /* so we can absolutely position menu button/panel */
+    background: linear-gradient(180deg, #e9f1ff, transparent 60%);
+    padding: calc(var(--space) * 1.2) var(--space);
+    border-bottom: 1px solid #d6e0f5;
+}
+.wrap { max-width: var(--max); margin-inline: auto; }
+nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--brand-ink);
+}
+.brand .logo {
+    width: 200px;
+    height: 90px;
+    border-radius: 50px;
+    /*background: var(--bg);*/
+    /*display: grid;*/
+    /*place-items: center;*/
+    /*color: white;*/
+    /*font-weight: 700;*/
+    object-fit: contain;
+}
+.brand span {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* === Custom "Menu" button for Bootstrap dropdown === */
+.menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: var(--brand); /*light blue*/
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;             /* rounded corners like screenshot */
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* hide Bootstrap’s default caret */
+.menu-btn.dropdown-toggle::after {
+    display: none;
+}
+
+/* Hamburger icon */
+.menu-icon {
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    position: relative;
+    display: block;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+}
+
+.menu-icon::before {
+    top: -6px;
+}
+
+.menu-icon::after {
+    top: 6px;
+}
+
+/* Hover / focus */
+.menu-btn:hover,
+.menu-btn:focus-visible {
+    background: var(--brand-ink);/* dark site blue */
+    color: #ffffff;
+}
+
+
+.hero {
+    padding: var(--space);
+    padding-top: 10px;
+}
+.hero h1 {
+    margin: 8px 0 6px;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    color: var(--brand-ink);
+}
+.hero p {
+    margin: 0;
+    color: var(--ink-soft);
+}
+.grid {
+    display: grid;
+    gap: var(--space);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: var(--space) 0;
+}
+.card {
+    background: var(--card);
+    border: 1px solid #d6e0f5;
+    border-radius: var(--radius);
+    padding: calc(var(--space) * 0.9);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+.card h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    color: var(--brand-ink);
+}
+.list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+footer {
+    border-top: 1px solid #d6e0f5;
+    margin-top: 24px;
+    background: #f1f6ff;
+    padding: calc(var(--space) * 1.2) var(--space);
+    color: var(--ink-soft);
+}
+footer .wrap {
+    text-align: center;
+}
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.skip {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+}
+.skip:focus {
+    left: 12px;
+    top: 12px;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid var(--focus);
+}
