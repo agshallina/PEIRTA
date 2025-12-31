@@ -13,34 +13,41 @@
 </head>
 <body>
 <header>
-    <div class="wrap">
-        <nav aria-label="Primary">
+    <div class="nav-container">
+        <nav class="main-nav" aria-label="Primary">
             <a class="brand" href="../index.html">
-                <img class="logo" src="../LOGO/IMG_5570.PNG" alt="logo">
+                <img class="logo" src="../LOGO/IMG_5570.PNG" alt="PEIRTA Logo">
             </a>
 
-            <ul class="nav ms-auto">
-                <li class="nav-item dropdown">
-                    <!-- Custom Menu Button -->
-                    <button
-                            class="menu-btn dropdown-toggle"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        <span class="menu-icon" aria-hidden="true"></span>
-                        <span class="menu-text">Menu</span>
-                    </button>
-
-                    <!-- Dropdown items -->
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="../Newsletters/newsletters.html">Newsletters</a></li>
-                        <li><a class="dropdown-item" href="../Membership/membership.html">Membership</a></li>
-                        <li><a class="dropdown-item" href="../Benefits/benefits.html">Benefits</a></li>
-                        <li><a class="dropdown-item" href="../Contact/contact.html">Contact</a></li>
-                    </ul>
-                </li>
+            <ul class="nav-links">
+                <li><a href="../Newsletters/newsletters.html" class="nav-link">Newsletters</a></li>
+                <li><a href="../Membership/membership.html" class="nav-link">Membership</a></li>
+                <li><a href="../Benefits/benefits.html" class="nav-link">Benefits</a></li>
+                <li><a href="../Contact/contact.html" class="nav-link">Contact</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <a href="#" class="nav-login">Login</a>
+                <a href="../Contact/contact.html" class="nav-cta">Join Us</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-icon" aria-hidden="true"></span>
+            </button>
         </nav>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="../Newsletters/newsletters.html" class="mobile-nav-link">Newsletters</a></li>
+                <li><a href="../Membership/membership.html" class="mobile-nav-link">Membership</a></li>
+                <li><a href="../Benefits/benefits.html" class="mobile-nav-link">Benefits</a></li>
+                <li><a href="../Contact/contact.html" class="mobile-nav-link">Contact</a></li>
+                <li><a href="#" class="mobile-nav-link">Login</a></li>
+                <li><a href="../Contact/contact.html" class="mobile-nav-link mobile-cta">Join Us</a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <main id="main" class="wrap" role="main">
@@ -129,9 +136,30 @@
     <div class="wrap">
         <small>&copy; <span id="year"></span> Retired Teachers’ Association. All rights reserved.</small>
     </div>
-    <!--Simple JavaScript that inserts the current year into the footer (so you don’t have to update it manually).-->
+    <!--Simple JavaScript that inserts the current year into the footer (so you don't have to update it manually).-->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
