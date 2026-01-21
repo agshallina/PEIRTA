@@ -369,3 +369,126 @@ footer .wrap {
     border-radius: 8px;
     border: 2px solid var(--focus);
 }
+
+
+
+
+
+
+/* NEW: Improved About Us Section */
+.about-hero {
+    background: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand) 100%);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3.5rem);
+    margin: calc(var(--space) * 1.5) 0;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(23, 62, 114, 0.2);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.about-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+}
+
+.about-description {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    margin: 0 0 2rem 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.about-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn-join,
+.btn-benefits {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-join {
+    background: #ffffff;
+    color: var(--brand-ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-join:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-benefits {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-benefits:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.btn-join:focus-visible,
+.btn-benefits:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+/* Objectives Section */
+.objectives-section {
+    margin: calc(var(--space) * 2) 0;
+    padding: var(--space);
+}
+
+.objectives-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--brand-ink);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+    .about-hero {
+        padding: 2rem 1.5rem;
+    }
+    
+    .about-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-join,
+    .btn-benefits {
+        width: 100%;
+    }
+}
