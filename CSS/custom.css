@@ -469,6 +469,7 @@ footer .wrap {
 .objectives-section {
     margin: calc(var(--space) * 2) 0;
     padding: var(--space);
+    text-align: center;
 }
 
 .objectives-title {
@@ -490,5 +491,125 @@ footer .wrap {
     .btn-join,
     .btn-benefits {
         width: 100%;
+    }
+}
+
+
+/* ============================================
+   MEGA FOOTER - Aligned with Header
+   ============================================
+   Strategy: Match header's max-width (1400px) and padding (24px)
+   so footer columns align vertically with logo (left) and "Join Us" button (right)
+   ============================================ */
+
+   .mega-footer {
+    background: #f3f6ff;
+    color: var(--ink);
+    padding: 3rem 24px 2.5rem;  /* 24px matches .nav-container padding for alignment */
+    margin-top: 3rem;
+    border-top: 1px solid #d6e0f5;
+}
+
+.mega-footer-inner {
+    max-width: 1400px;          /* Matches .nav-container max-width for perfect alignment */
+    margin: 0 auto;
+    /* No grid needed here since brand section was removed - columns go directly inside */
+}
+
+.mega-footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 2.5rem;
+    /* Columns now span full width of .mega-footer-inner (1400px),
+       aligning left edge with logo and right edge with "Join Us" button */
+}
+
+.mega-footer-column h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 0.75rem 0;
+    color: var(--brand-ink);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.mega-footer-column h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--brand);
+}
+
+.mega-footer-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mega-footer-column li + li {
+    margin-top: 0.35rem;
+}
+
+.mega-footer-column a {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mega-footer-column a:hover {
+    color: var(--brand-ink);
+}
+
+/* Light copyright strip */
+.site-footer-dark {
+    background: #e5edff;
+    color: var(--ink-soft);
+    padding: 0.9rem 24px;  /* Match header padding for alignment */
+    border-top: 1px solid #d6e0f5;
+}
+
+.site-footer-inner {
+    max-width: 1400px;  /* Match header max-width for alignment */
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet: Switch to 3 columns when space gets tight */
+@media (max-width: 1200px) {
+    .mega-footer-columns {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+    }
+}
+
+/* Smaller tablet: Stack brand and columns, use 2-column grid for links */
+@media (max-width: 960px) {
+    .mega-footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem;
+    }
+}
+
+/* Mobile: Single column stack */
+@media (max-width: 640px) {
+    .mega-footer {
+        padding: 2.5rem 16px 2rem;  /* Match mobile header padding (16px) */
+    }
+
+    .mega-footer-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .site-footer-dark {
+        padding: 0.9rem 16px;  /* Match mobile header padding */
     }
 }

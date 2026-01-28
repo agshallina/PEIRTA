@@ -138,7 +138,7 @@
     </section>
 
     <!-- Everything else (simple link hub) -->
-    <section class="card">
+    <!-- <section class="card">
         <h2>All Sections</h2>
         <ul class="list" style="columns: 2; column-gap: 28px; max-width: 100%;">
             <li><a href="HomeLinks/presidentsAnnualReport.html">Presidents’ Annual Report</a></li>
@@ -150,16 +150,94 @@
             <li><a href="Benefits/benefits.html">Benefits</a></li>
             <li><a href="Contact/contact.html">Contact</a></li>
         </ul>
-    </section>
+    </section> -->
+<!-- Light Mega Footer -->
+<section class="mega-footer">
+    <div class="mega-footer-inner">
+        <div class="mega-footer-columns">
+            <div class="mega-footer-column">
+                <h3>About &amp; History</h3>
+                    <ul>
+                        <li><a href="HomeLinks/historyOfRTA.html">History of RTA</a></li>
+                        <li><a href="HomeLinks/presidentsAnnualReport.html">President’s Annual Report</a></li>
+                        <li><a href="Newsletters/newsletters.html">Newsletters</a></li>
+                    </ul>
+            </div>
+    
+            <div class="mega-footer-column">
+                <h3>Membership</h3>
+                    <ul>
+                        <li><a href="Membership/membership.html">Join Us</a></li>
+                        <li><a href="Membership/membership.html">Eligibility</a></li>
+                        <li><a href="Membership/RTAMembershipform.pdf">Membership Forms</a></li>
+                        </ul>
+            </div>
+    
+            <div class="mega-footer-column">
+                <h3>Benefits &amp; Support</h3>
+                    <ul>
+                        <li><a href="Benefits/benefits.html">Member Benefits</a></li>
+                        <li><a href="HomeLinks/groupInsuranceForum.html">Group Insurance Forum</a></li>
+                        <li><a href="https://www.peitf.com/">PEI Teachers' Federation</a></li>
+                    </ul>
+            </div>
+    
+            <div class="mega-footer-column">
+                <h3>Stay Connected</h3>
+                    <ul>
+                        <li><a href="Contact/contact.html">Contact Us</a></li>
+                        <li><a href="Newsletters/newsletters.html">Newsletters</a></li>
+                        <li><a href="HomeLinks/notices.html">Notices</a></li>
+                    </ul>
+            </div>
+        </div>
+    </div>        
+</section>
+    
+    </main>
+    
+    <footer class="site-footer-dark">
+        <div class="site-footer-inner">
+            <small>&copy; <span id="year"></span> Retired Teachers’ Association. All rights reserved.</small>
+        </div>
+    
+        <!-- Scripts -->
+        <script>
+            document.getElementById('year').textContent = new Date().getFullYear();
+    
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+    
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.classList.toggle('active');
+                });
+    
+                const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                crossorigin="anonymous"></script>
+    </footer>
 
 
-</main>
+<!-- </main>
 
 <footer>
     <div class="wrap">
         <small>&copy; <span id="year"></span> Retired Teachers’ Association. All rights reserved.</small>
     </div>
-    <!--Simple JavaScript that inserts the current year into the footer (so you don't have to update it manually).-->
+    Simple JavaScript that inserts the current year into the footer (so you don't have to update it manually).
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
         
@@ -187,6 +265,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-</footer>
+</footer> -->
 </body>
 </html>
