@@ -406,6 +406,32 @@ header {
     text-align: center;
     margin: 0 auto;
 }
+.membership-process {
+    max-width: 720px;
+    margin: calc(var(--space) * 2) auto;
+    text-align: left;
+}
+.membership-process h2 {
+    margin-bottom: calc(var(--space) * 0.8);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    color: var(--brand);
+    text-align: center;
+}
+.membership-process ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin: calc(var(--space) * 0.8) auto calc(var(--space) * 1.2);
+    text-align: left;
+    max-width: 600px;
+}
+.membership-process ul li {
+    margin-bottom: 10px;
+}
+.membership-process p {
+    margin: 0 auto calc(var(--space) * 0.9);
+    max-width: 600px;
+    text-align: left;
+}
 footer {
     border-top: 1px solid #d6e0f5;
     margin-top: 24px;
