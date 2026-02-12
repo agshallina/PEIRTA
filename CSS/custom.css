@@ -120,7 +120,7 @@ header {
 }
 
 .nav-cta {
-    background: var(--brand-ink);
+    background: var(--brand);
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
@@ -128,14 +128,14 @@ header {
     padding: 10px 24px;
     border-radius: 8px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(23, 62, 114, 0.2);
+    box-shadow: 0 2px 4px rgba(43, 108, 176, 0.25);
     white-space: nowrap;
 }
 
 .nav-cta:hover {
-    background: var(--brand);
+    background: var(--brand-ink);
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(23, 62, 114, 0.3);
+    box-shadow: 0 4px 8px rgba(43, 108, 176, 0.35);
 }
 
 .nav-cta:active {
@@ -246,14 +246,14 @@ header {
 }
 
 .mobile-cta {
-    background: var(--brand-ink);
+    background: var(--brand);
     color: #ffffff;
     margin-top: 8px;
     text-align: center;
 }
 
 .mobile-cta:hover {
-    background: var(--brand);
+    background: var(--brand-ink);
     color: #ffffff;
 }
 
@@ -930,7 +930,7 @@ footer .wrap {
 
 .resource-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--space);
 }
 
