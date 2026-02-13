@@ -427,7 +427,7 @@ header,
     background: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand) 100%);
     border-radius: var(--radius);
     padding: clamp(2rem, 4vw, 3.5rem);
-    margin: calc(var(--space) * 1.5) 0;
+    margin: 0 0 calc(var(--space) * 1.5) 0;
     color: var(--card);
     box-shadow: 0 4px 20px rgba(23, 62, 114, 0.2);
 }
@@ -1011,6 +1011,357 @@ header,
 
 
 /* ==========================================================================
+   PAGE: GROUP INSURANCE FORUM
+   Hero, resource cards, contact notice.
+   ========================================================================== */
+.group-insurance-hero {
+    background: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand) 100%);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: calc(var(--space) * 1.5);
+    color: var(--card);
+}
+
+.group-insurance-hero h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.group-insurance-tagline {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.group-insurance-content {
+    margin-bottom: calc(var(--space) * 2);
+}
+
+.group-insurance-section-title {
+    font-size: 1.25rem;
+    color: var(--brand-ink);
+    margin: 0 0 calc(var(--space) * 1);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(43, 108, 176, 0.25);
+}
+
+.group-insurance-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space);
+}
+
+.group-insurance-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--brand-ink);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.group-insurance-card:hover {
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.12);
+    border-color: rgba(43, 108, 176, 0.3);
+    background: #fafcff;
+}
+
+.group-insurance-card h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.group-insurance-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+.group-insurance-card .resource-arrow {
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.group-insurance-notice {
+    background: #f1f6ff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--brand);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: calc(var(--space) * 1.5);
+}
+
+.group-insurance-notice h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--brand-ink);
+}
+
+.group-insurance-notice p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+}
+
+
+/* ==========================================================================
+   PAGE: NOTICES
+   Hero, notice cards for ongoing updates.
+   ========================================================================== */
+.notices-hero {
+    background: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand) 100%);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: calc(var(--space) * 1.5);
+    color: var(--card);
+}
+
+.notices-hero h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.notices-tagline {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notices-list {
+    margin-bottom: calc(var(--space) * 2);
+}
+
+.notices-section-title {
+    font-size: 1.25rem;
+    color: var(--brand-ink);
+    margin: 0 0 calc(var(--space) * 1);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(43, 108, 176, 0.25);
+}
+
+.notice-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: var(--space);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid var(--brand);
+}
+
+.notice-card:hover {
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.08);
+}
+
+.notice-date {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+}
+
+.notice-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--brand-ink);
+}
+
+.notice-content {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+.notice-content a {
+    font-weight: 500;
+}
+
+
+/* ==========================================================================
+   PAGE: HISTORY OF RTA
+   Hero, content sections for narrative history (to be filled in).
+   ========================================================================== */
+.history-hero {
+    background: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand) 100%);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: calc(var(--space) * 1.5);
+    color: var(--card);
+}
+
+.history-hero h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.history-tagline {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.history-content {
+    margin-bottom: calc(var(--space) * 2);
+}
+
+.history-section-title {
+    font-size: 1.25rem;
+    color: var(--brand-ink);
+    margin: 0 0 calc(var(--space) * 1);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(43, 108, 176, 0.25);
+}
+
+.history-intro,
+.history-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: var(--space);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.history-intro p,
+.history-section p {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+.history-intro p:last-child,
+.history-section p:last-child {
+    margin-bottom: 0;
+}
+
+.history-section h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brand-ink);
+}
+
+
+/* ==========================================================================
+   PAGE: PRESIDENT'S ANNUAL REPORT
+   Hero, report cards for ongoing updates (PDF links).
+   ========================================================================== */
+.president-report-hero {
+    background: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand) 100%);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: calc(var(--space) * 1.5);
+    color: var(--card);
+}
+
+.president-report-hero h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.president-report-tagline {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.president-report-list {
+    margin-bottom: calc(var(--space) * 2);
+}
+
+.president-report-section-title {
+    font-size: 1.25rem;
+    color: var(--brand-ink);
+    margin: 0 0 calc(var(--space) * 1);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(43, 108, 176, 0.25);
+}
+
+.report-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: var(--space);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid var(--brand);
+}
+
+.report-card:hover {
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.08);
+}
+
+.report-year {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--brand);
+    background: rgba(43, 108, 176, 0.1);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+}
+
+.report-title {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--brand-ink);
+}
+
+.report-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--card);
+    background: var(--brand);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.report-download:hover {
+    background: var(--brand-ink);
+    color: var(--card);
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================================
    13. BUTTONS
    CTA buttons for hero sections, download button.
    ========================================================================== */
@@ -1284,6 +1635,7 @@ header,
     max-width: var(--max);
     margin-inline: auto;
     padding-inline: 24px;
+    padding-top: 2rem;
 }
 
 
