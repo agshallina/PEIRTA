@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: agshallina/PEIRTA   # your GitHub username/repo
+  branch: main
+
+media_folder: "uploads"
+
+collections:
+  - name: "events"
+    label: "Upcoming Events"
+    folder: "_data/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+
+  - name: "newsletters"
+    label: "Newsletters"
+    folder: "_data/newsletters"
+    create: true
+    fields:
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Season", name: "season", widget: "select", options: ["Winter", "Spring", "Fall"] }
+      - { label: "PDF File", name: "pdf", widget: "file" }
+
+  - name: "president_reports"
+    label: "President's Annual Report"
+    folder: "_data/reports"
+    create: true
+    fields:
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "PDF File", name: "pdf", widget: "file" }
