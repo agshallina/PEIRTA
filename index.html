@@ -71,20 +71,8 @@
 
         <section class="upcoming-events" aria-labelledby="events-heading">
             <h2 id="events-heading" class="home-section-title">Upcoming Events</h2>
-            <div class="events-box">
-                <!-- Add events by copying an event-item block and updating the details -->
-                <div class="event-item">
-                    <time class="event-date" datetime="2025-03-15">Date</time>
-                    <span class="event-title">Title of Event</span>
-                    <p class="event-details">Description of Event</p>
-                </div>
-                <!-- Example: Copy this block to add another event
-                <div class="event-item">
-                    <time class="event-date" datetime="YYYY-MM-DD">Month Day, Year</time>
-                    <span class="event-title">Event name</span>
-                    <p class="event-details">Time, location, and description.</p>
-                </div>
-                -->
+            <div class="events-box" id="events-box">
+                <p class="no-events">No upcoming events at this time. Check back soon.</p>
             </div>
         </section>
     
@@ -188,6 +176,27 @@
     
         <!-- Scripts -->
         <script>
+            fetch('_data/events.json')
+                .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+                .then(function(data) {
+                    var box = document.getElementById('events-box');
+                    if (!box) return;
+                    var events = (data.events || []).filter(function(e) { return e.title && e.date; });
+                    if (events.length === 0) return;
+                    events.sort(function(a, b) { return new Date(a.date) - new Date(b.date); });
+                    box.innerHTML = events.map(function(ev) {
+                        var d = new Date(ev.date + 'T12:00:00');
+                        var datetime = ev.date;
+                        var formatted = d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+                        return '<div class="event-item">' +
+                            '<time class="event-date" datetime="' + datetime + '">' + formatted + '</time>' +
+                            '<span class="event-title">' + ev.title + '</span>' +
+                            '<p class="event-details">' + ev.description + '</p>' +
+                            '</div>';
+                    }).join('');
+                })
+                .catch(function() {});
+
             document.getElementById('year').textContent = new Date().getFullYear();
     
             // Mobile menu toggle

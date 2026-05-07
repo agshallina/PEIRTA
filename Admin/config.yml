@@ -1,34 +1,52 @@
 backend:
-  name: github
-  repo: agshallina/PEIRTA   # your GitHub username/repo
+  name: git-gateway
   branch: main
 
 media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "events"
-    label: "Upcoming Events"
-    folder: "_data/events"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Event Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text" }
+  - name: "site_content"
+    label: "Site Content"
+    files:
 
-  - name: "newsletters"
-    label: "Newsletters"
-    folder: "_data/newsletters"
-    create: true
-    fields:
-      - { label: "Year", name: "year", widget: "number" }
-      - { label: "Season", name: "season", widget: "select", options: ["Winter", "Spring", "Fall"] }
-      - { label: "PDF File", name: "pdf", widget: "file" }
+      - name: "events"
+        label: "Upcoming Events"
+        file: "_data/events.json"
+        format: json
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "Event Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
+              - { label: "Description", name: "description", widget: "text" }
 
-  - name: "president_reports"
-    label: "President's Annual Report"
-    folder: "_data/reports"
-    create: true
-    fields:
-      - { label: "Year", name: "year", widget: "number" }
-      - { label: "PDF File", name: "pdf", widget: "file" }
+      - name: "newsletters"
+        label: "Newsletters (add new issues here)"
+        file: "_data/newsletters.json"
+        format: json
+        fields:
+          - label: "Newsletters"
+            name: "newsletters"
+            widget: "list"
+            summary: "{{fields.season}} {{fields.year}}"
+            fields:
+              - { label: "Year", name: "year", widget: "number" }
+              - { label: "Season", name: "season", widget: "select", options: ["Winter", "Spring", "Fall"] }
+              - { label: "PDF File", name: "pdf", widget: "file" }
+
+      - name: "reports"
+        label: "President's Annual Report"
+        file: "_data/reports.json"
+        format: json
+        fields:
+          - label: "Reports"
+            name: "reports"
+            widget: "list"
+            summary: "President's Annual Report {{fields.year}}"
+            fields:
+              - { label: "Year", name: "year", widget: "number" }
+              - { label: "PDF File", name: "pdf", widget: "file", required: false }

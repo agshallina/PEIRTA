@@ -386,8 +386,42 @@
     </div>
     <!--Simple JavaScript that inserts the current year into the footer (so you don't have to update it manually).-->
     <script>
+        fetch('../_data/newsletters.json')
+            .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+            .then(function(data) {
+                var newsletters = (data.newsletters || []).filter(function(n) { return n.year && n.season && n.pdf; });
+                if (newsletters.length === 0) return;
+                var byYear = {};
+                newsletters.forEach(function(n) {
+                    if (!byYear[n.year]) byYear[n.year] = [];
+                    byYear[n.year].push(n);
+                });
+                var seasonOrder = { Fall: 3, Spring: 2, Winter: 1 };
+                var accordion = document.querySelector('.newsletter-accordion');
+                var firstItem = accordion.querySelector('.newsletter-item');
+                Object.keys(byYear).map(Number).sort(function(a, b) { return b - a; }).forEach(function(year) {
+                    var items = byYear[year].sort(function(a, b) {
+                        return (seasonOrder[b.season] || 0) - (seasonOrder[a.season] || 0);
+                    });
+                    var details = document.createElement('details');
+                    details.className = 'newsletter-item';
+                    details.id = String(year);
+                    details.open = true;
+                    details.innerHTML =
+                        '<summary><span class="summary-text">' + year + ' Newsletter Archive</span></summary>' +
+                        '<div class="newsletter-panel"><p>Latest Newsletters</p><ul class="list">' +
+                        items.map(function(n) {
+                            return '<li><a href="' + n.pdf + '">' + n.season + ' ' + n.year + '</a></li>';
+                        }).join('') +
+                        '</ul></div>';
+                    if (firstItem) accordion.insertBefore(details, firstItem);
+                    else accordion.appendChild(details);
+                });
+            })
+            .catch(function() {});
+
         document.getElementById('year').textContent = new Date().getFullYear();
-        
+
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.querySelector('.mobile-menu');
