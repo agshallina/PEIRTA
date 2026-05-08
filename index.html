@@ -12,6 +12,7 @@
           crossorigin="anonymous">
 
     <link rel="stylesheet" href="CSS/custom.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -176,6 +177,16 @@
     
         <!-- Scripts -->
         <script>
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on('init', function(user) {
+                    if (!user) {
+                        window.netlifyIdentity.on('login', function() {
+                            document.location.href = '/Admin/';
+                        });
+                    }
+                });
+            }
+
             fetch('_data/events.json')
                 .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
                 .then(function(data) {
