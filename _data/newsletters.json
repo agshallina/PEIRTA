@@ -1,1 +1,9 @@
-{"newsletters":[]}
+{
+  "newsletters": [
+    {
+      "year": 2026,
+      "season": "Winter",
+      "pdf": "/uploads/june_august_savings_plan_detailed.pdf"
+    }
+  ]
+}
