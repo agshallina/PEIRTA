@@ -1,3 +1,9 @@
 {
-  "newsletters": []
+  "newsletters": [
+    {
+      "year": 2026,
+      "season": "Spring",
+      "pdf": "/uploads/mckenna-receipt.pdf"
+    }
+  ]
 }
