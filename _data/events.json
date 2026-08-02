@@ -1,3 +1,10 @@
 {
-  "events": []
+  "events": [
+    {
+      "title": "Akayobe",
+      "date": "2026-10-31",
+      "description": "A song ",
+      "image": "/uploads/holl-pass-picture.jpg"
+    }
+  ]
 }
