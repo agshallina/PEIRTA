@@ -23,6 +23,7 @@ collections:
               - { label: "Event Title", name: "title", widget: "string" }
               - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
               - { label: "Description", name: "description", widget: "text" }
+              - { label: "Event Photo", name: "image", widget: "image", required: false }
 
       - name: "newsletters"
         label: "Newsletters (add new issues here)"

@@ -199,7 +199,9 @@
                         var d = new Date(ev.date + 'T12:00:00');
                         var datetime = ev.date;
                         var formatted = d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+                        var imageMarkup = ev.image ? '<img class="event-image" src="' + ev.image + '" alt="' + (ev.title || 'Event photo') + '">' : '';
                         return '<div class="event-item">' +
+                            imageMarkup +
                             '<time class="event-date" datetime="' + datetime + '">' + formatted + '</time>' +
                             '<span class="event-title">' + ev.title + '</span>' +
                             '<p class="event-details">' + ev.description + '</p>' +
