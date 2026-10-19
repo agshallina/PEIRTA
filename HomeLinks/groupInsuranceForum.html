@@ -59,9 +59,14 @@
             <p class="group-insurance-tagline">Programs and group insurance information for PEIRTA members. Access resources and stay informed about your benefits.</p>
         </section>
 
+        <section class="group-insurance-content" aria-labelledby="updates-heading" id="updates-section" hidden>
+            <h3 id="updates-heading" class="group-insurance-section-title">Updates &amp; Information</h3>
+            <div class="group-insurance-updates" id="updates-list"></div>
+        </section>
+
         <section class="group-insurance-content" aria-labelledby="resources-heading">
             <h3 id="resources-heading" class="group-insurance-section-title">Resources</h3>
-            <div class="group-insurance-cards">
+            <div class="group-insurance-cards" id="resources-list">
                 <a class="group-insurance-card" href="https://www.peitf.com/" target="_blank" rel="noopener noreferrer">
                     <h4>PEI Teachers' Federation</h4>
                     <p>Visit the PEITF website for programs and group insurance information.</p>
@@ -121,8 +126,54 @@
     </div>
     <!--Simple JavaScript that inserts the current year into the footer (so you don't have to update it manually).-->
     <script>
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        fetch('../_data/groupInsurance.json')
+            .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+            .then(function(data) {
+                var updates = (data.updates || []).filter(function(u) { return u.title; });
+                if (updates.length > 0) {
+                    // Newest first; undated items go last
+                    updates.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
+                    document.getElementById('updates-list').innerHTML = updates.map(function(u) {
+                        var date = '';
+                        if (u.date) {
+                            var d = new Date(u.date + 'T12:00:00');
+                            date = '<time class="group-insurance-update-date" datetime="' + esc(u.date) + '">' +
+                                d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }) + '</time>';
+                        }
+                        var body = (u.body || '').split(/\n\s*\n/).filter(Boolean).map(function(p) {
+                            return '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>';
+                        }).join('');
+                        var links = '';
+                        if (u.file) links += '<a class="group-insurance-update-link" href="' + esc(u.file) + '" target="_blank" rel="noopener">Download attachment</a>';
+                        if (u.link) links += '<a class="group-insurance-update-link" href="' + esc(u.link) + '" target="_blank" rel="noopener noreferrer">' + esc(u.link_text || 'Learn more') + '</a>';
+                        return '<article class="group-insurance-update">' + date +
+                            '<h4>' + esc(u.title) + '</h4>' + body +
+                            (links ? '<div class="group-insurance-update-links">' + links + '</div>' : '') +
+                            '</article>';
+                    }).join('');
+                    document.getElementById('updates-section').hidden = false;
+                }
+
+                var resources = (data.resources || []).filter(function(r) { return r.title && r.url; });
+                if (resources.length > 0) {
+                    document.getElementById('resources-list').innerHTML = resources.map(function(r) {
+                        return '<a class="group-insurance-card" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
+                            '<h4>' + esc(r.title) + '</h4>' +
+                            (r.description ? '<p>' + esc(r.description) + '</p>' : '') +
+                            '<span class="resource-arrow" aria-hidden="true">→</span></a>';
+                    }).join('');
+                }
+            })
+            .catch(function() {});
+
         document.getElementById('year').textContent = new Date().getFullYear();
-        
+
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.querySelector('.mobile-menu');

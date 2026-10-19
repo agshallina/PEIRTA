@@ -51,3 +51,30 @@ collections:
             fields:
               - { label: "Year", name: "year", widget: "number" }
               - { label: "PDF File", name: "pdf", widget: "file", required: false }
+
+      - name: "group_insurance"
+        label: "Group Insurance Forum"
+        file: "_data/groupInsurance.json"
+        format: json
+        fields:
+          - label: "Updates & Information"
+            name: "updates"
+            widget: "list"
+            required: false
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: false }
+              - { label: "Details", name: "body", widget: "text" }
+              - { label: "Attachment (PDF or document)", name: "file", widget: "file", required: false }
+              - { label: "Link URL", name: "link", widget: "string", required: false }
+              - { label: "Link Text", name: "link_text", widget: "string", required: false }
+          - label: "Resources"
+            name: "resources"
+            widget: "list"
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "URL", name: "url", widget: "string" }

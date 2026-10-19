@@ -1150,6 +1150,53 @@ header,
     margin-top: auto;
 }
 
+.group-insurance-updates {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.group-insurance-update {
+    padding: 1.5rem 1.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.group-insurance-update-date {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 0.25rem;
+}
+
+.group-insurance-update h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brand-ink);
+}
+
+.group-insurance-update p {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+.group-insurance-update-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.group-insurance-update-link {
+    font-weight: 600;
+    color: var(--brand);
+}
+
 .group-insurance-notice {
     background: #f1f6ff;
     border: 1px solid var(--border);
